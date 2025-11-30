@@ -11,6 +11,10 @@
 The project utilizes **Ensemble Learning** techniques (Random Forest, Bagging, XGBoost, Gradient Boosting) to handle class imbalance and maximize prediction accuracy. The results are presented in a professional, interactive **Streamlit Dashboard**.
 
 ---
+## 🎬 Demo
+- **Streamlit Profile** - https://share.streamlit.io/user/ratnesh-181998
+- **Project Demo** - https://ola-driver-churn-prediction-machine-learning-mmntzrjjgxbadbxd4.streamlit.app/
+---
 
 ## 🚀 Key Features
 - **Interactive Dashboard**: Built with Streamlit, featuring a modern UI with dark mode and gradients.
@@ -153,8 +157,9 @@ We compared multiple models to find the best predictor for driver churn.
 - 📱 **Phone**: +91-947XXXXX46
 
 ### Project Links
-- 📖 **Documentation**: [GitHub Wiki](https://github.com/Ratnesh-181998/OLA-Driver-Churn-Prediction-Machine-Learning/wiki)
-- 🐛 **Issue Tracker**: [GitHub Issues](https://github.com/Ratnesh-181998/OLA-Driver-Churn-Prediction-Machine-Learning/issues)
+- 🌐 Live Demo: [Streamlit](https://ola-driver-churn-prediction-machine-learning-mmntzrjjgxbadbxd4.streamlit.app/)
+- 📖 Documentation: [GitHub Wiki](https://github.com/Ratnesh-181998/OLA-Driver-Churn-Prediction-Machine-Learning/wiki)
+- 🐛 Issue Tracker: [GitHub Issues](https://github.com/OLA-Driver-Churn-Prediction-Machine-Learning/issues)
 
 ---
 
