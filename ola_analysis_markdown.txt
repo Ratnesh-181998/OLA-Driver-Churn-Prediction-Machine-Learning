@@ -1,0 +1,231 @@
+
+===== Markdown Cell 1 =====
+## Project Title:  OLA - Ensemble Learning
+
+
+# Problem Statement
+
+
+- Recruiting and retaining drivers is seen by industry watchers as a tough battle for Ola.
+- Churn among drivers is high and it’s very easy for drivers to stop working for the service on the fly or jump to Uber depending on the rates.
+
+
+- As the companies get bigger, the high churn could become a bigger problem. To find new drivers, Ola is casting a wide net, including people who don’t have cars for jobs. But this acquisition is really costly.
+- Losing drivers frequently impacts the morale of the organization and acquiring new drivers is more expensive than retaining existing ones.
+
+
+- You are working as a data scientist with the Analytics Department of Ola, focused on driver team attrition.
+- You are provided with the monthly information for a segment of drivers for 2019 and 2020 and tasked to predict whether a driver will be leaving the company or not based on their attributes like
+
+- Demographics (city, age, gender etc.)
+- Tenure information (joining date, Last Date)
+
+- Historical data regarding the performance of the driver (Quarterly rating, Monthly business acquired, grade, Income)
+
+
+
+### Column Profiling:
+
+
+- MMMM-YY : Reporting Date (Monthly)
+- Driver_ID : Unique id for drivers
+- Age : Age of the driver
+- Gender : Gender of the driver – Male : 0, Female: 1
+- City : City Code of the driver
+- Education_Level : Education level – 0 for 10+ ,1 for 12+ ,2 for graduate
+- Income : Monthly average Income of the driver
+- Date Of Joining : Joining date for the driver
+- LastWorkingDate : Last date of working for the driver
+- Joining Designation : Designation of the driver at the time of joining
+- Grade : Grade of the driver at the time of reporting
+- Total Business Value : The total business value acquired by the driver in a month (negative business indicates -cancellation/refund or car EMI adjustments)
+- Quarterly Rating : Quarterly rating of the driver: 1,2,3,4,5 (higher is better)
+
+
+### Concepts Tested:
+
+        Ensemble Learning- Bagging
+        Ensemble Learning- Boosting
+        KNN Imputation of Missing Values
+        Working with an imbalanced dataset
+        
+
+
+
+===== Markdown Cell 2 =====
+## Missing values checK : 
+
+
+===== Markdown Cell 3 =====
+## Analysing structure of given Data : 
+
+
+===== Markdown Cell 4 =====
+## Restructuring the data by aggregation : 
+
+
+===== Markdown Cell 5 =====
+## Target variable creation: 
+- ### target which tells whether the driver has left the company- driver whose last working day is present will have the value 1
+
+
+===== Markdown Cell 6 =====
+- ###  class 1 is the driviers who churned . 68% 
+- ###  class 0 is the driviers who have not churned . 32%
+
+- ### Data is imbalanced 
+
+
+===== Markdown Cell 7 =====
+#### Converting date columns into Datatime format : 
+
+
+===== Markdown Cell 8 =====
+### checking for missing values after restructuring : 
+
+
+===== Markdown Cell 9 =====
+# Feature Engineering : 
+
+
+===== Markdown Cell 10 =====
+### whether the quarterly rating has increased for that driver 
+- #### for those whose quarterly rating has increased we assign the value 1
+
+   
+
+  
+
+
+===== Markdown Cell 11 =====
+### whether the monthly income has increased for that driver - 
+- #### for those whose monthly income has increased we assign the value 1
+
+
+===== Markdown Cell 12 =====
+## SimpleImputer
+
+
+===== Markdown Cell 13 =====
+## TargetEncoder
+
+
+===== Markdown Cell 14 =====
+sns.heatmap(Mdata.corr())
+
+
+===== Markdown Cell 15 =====
+## KNNImputer
+
+
+===== Markdown Cell 16 =====
+## train_test_split
+
+
+===== Markdown Cell 17 =====
+## StandardScaler
+
+
+===== Markdown Cell 18 =====
+## RandomForestClassifier
+
+
+===== Markdown Cell 19 =====
+## GridSearchCV - on RandomForestClassifier
+
+
+===== Markdown Cell 20 =====
+## BaggingClassifier
+
+
+===== Markdown Cell 21 =====
+## GradientBoostingClassifier
+
+
+===== Markdown Cell 22 =====
+# Inferences : 
+
+from data  distribution:
+Male      1380
+Female     956
+
+Churn : distribution:
+1    1616 (67.870%)
+0     765 (32.12%)
+
+
+- Probability of Churn is higher in case of education level 0 and 1 than 2.
+- in case of joining destination 1, probability of churn is higher. 
+
+
+
+- in case of quarterly rating is 1, probability of churn is significantly higher.
+- also same pattern is observed in case of when driver's quarterly rating has increased through out tenure.
+
+
+
+
+- due to some reason , for drivers who joined in 2018 and 2019 , probability of churn is very high compare to 2020 and before 2018.
+
+
+
+#### Random Forest : 
+- train and test score : (0.8697478991596639, 0.8679245283018868)
+- feature importance : highest is : joining year , followed by No of records available in data, and total business value.
+- recall : 0.866
+- precision: 0.928
+- f1-score : 0.89
+
+
+#### on Grid Search CV : RF : 
+- best params : ccp_alpha=0.001, max_depth=10, max_features=7,n_estimators=300
+- Gridsearch RF best score : 0.8881417819617973
+
+
+#### Bagging Classfier : wwith Decision Tree : 
+- with 50 DTs. when max_depth=7, class_weight="balanced"
+- f1 score : 0.9064039408866995
+- precision : 0.9387755102040817
+- recall_score : 0.8761904761904762
+- accuracy: 0.880
+
+
+
+
+#### XGBoost Classifier: (Grid SEARCH CV : ) 'max_depth': 2, 'n_estimators': 100
+- test Scores : 
+- Accuracy : 0.87
+- f1 score : 0.90
+- recall : 0.923
+- precision : 0.884
+
+- feature importance : highest is : joining year , followed by No of records available in data, and total business value.
+
+
+
+
+#### GradientBoostingClassifier : GBDC:
+
+- Train Score :  0.914390756302521 
+- Test Score :  0.8909853249475891 
+- Accuracy Score :  0.8909853249475891 
+- ROC-AUC score  test dataset:   0.9447855910621867 
+- precision score  test dataset:   0.9287925696594427 
+- Recall score  test dataset:   0.9118541033434651 
+- f1 score  test dataset :   0.9202453987730062 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
