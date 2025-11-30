@@ -22,7 +22,58 @@ The project utilizes **Ensemble Learning** techniques (Random Forest, Bagging, X
 
 ---
 
-## 🛠️ Tech Stack
+## �️ Streamlit UI Walkthrough
+The application is organized into intuitive tabs for a seamless user experience:
+
+### 1. 📊 Data Overview
+- **Key Metrics**: Displays total records, unique drivers, feature count, and time period.
+- **Raw Data**: View the first 10 rows of the dataset.
+- **Data Types**: Summary of column types and non-null counts.
+
+### 2. 🔍 Exploratory Data Analysis (EDA)
+- **Distributions**: Visualizations for Gender, Education, Age, Income, and City.
+- **Missing Values**: Heatmap and bar chart to identify data gaps.
+- **Correlation**: Heatmap showing relationships between numerical features.
+
+### 3. 📋 Case Study
+- **Problem Statement**: Detailed explanation of the business challenge.
+- **Churn Analysis**: Charts showing churn rates by Gender, Education, Rating, and Grade.
+- **Concepts Tested**: Overview of Ensemble Learning and handling imbalanced data.
+
+### 4. 🛠️ Preprocessing
+- **Pipeline Steps**: Visual guide to data cleaning, encoding, and scaling.
+- **Missing Data Map**: Heatmap visualizing the `LastWorkingDate` (churn indicator).
+
+### 5. ⚙️ Features
+- **Feature Engineering**: Analysis of derived features like `Quarterly_Rating_Increase` and `Income_Increase`.
+- **Categorical Analysis**: Interactive bar charts comparing feature categories against churn.
+- **Importance**: List of top features driving the model's predictions.
+
+### 6. 🤖 Models
+- **Model Training**: Code snippets and configuration for Random Forest, Bagging, XGBoost, and Gradient Boosting.
+- **Learning Curves**: Visualization of training vs. validation performance.
+- **Precision-Recall**: Curve demonstrating the trade-off for the best model.
+
+### 7. 📊 Evaluation
+- **Performance Metrics**: Comparative table of Accuracy, Precision, Recall, F1-Score, and ROC-AUC.
+- **ROC Curves**: Comparison of ROC curves for all models.
+- **Confusion Matrices**: Heatmaps showing true positives, false positives, etc.
+
+### 8. 💡 Insights
+- **Key Findings**: Bullet points summarizing critical discoveries (e.g., 2018-2019 cohort risk).
+- **Churn Trends**: Visual analysis of churn over time/cohorts.
+- **Recommendations**: Strategic business actions to reduce attrition.
+
+### 9. ❓ Questionnaire
+- **Interactive Q&A**: Guided questions to explore the analysis findings.
+- **Quiz**: Test your knowledge on the key drivers of churn.
+
+### 10. 📚 Complete Analysis
+- **Full Walkthrough**: Comprehensive, code-rich explanation of the entire project pipeline, from raw data to final model.
+
+---
+
+## �🛠️ Tech Stack
 - **Language**: Python
 - **Frontend**: Streamlit
 - **Libraries**: Pandas, NumPy, Scikit-learn, XGBoost, Matplotlib, Seaborn, Category Encoders
